@@ -5,7 +5,7 @@
     </ul>
     <div style="padding: 25px">
       <h4>Count : {{count}}</h4>
-      <button type="button" class="btn btn-primary" @click="increment">Add</button>
+      <button type="button" class="btn btn-primary" @click="increment(3)">Add</button>
     </div>
   </div>
 </template>
@@ -21,8 +21,9 @@ export default {
     }
   },
   methods:{
-    increment(){
-      this.$store.commit("increment")
+    increment(payload){
+      // this.$store.commit("increment")
+      this.$store.dispatch('increment',payload)
     }
   }
 };

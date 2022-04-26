@@ -22,11 +22,16 @@ export default createStore({
     }
   },
   mutations: {
-    increment(state){
-      state.count++
+    increment(state,payload) {
+      state.count+=payload
     }
   },
   actions: {
+    increment(context, payload) {
+      setTimeout(() => {
+        context.commit('increment',payload)
+      }, 1000)
+    }
   },
   modules: {
   }
