@@ -22,6 +22,9 @@ export default createStore({
     }
   },
   mutations: {
+    increment(state){
+      state.count++
+    }
   },
   actions: {
   },
