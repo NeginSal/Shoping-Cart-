@@ -2,36 +2,21 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    // products: [
-    //   { name: "Banana Skin", price: 20 },
-    //   { name: "Shiny Star", price: 40 },
-    //   { name: "Green Shells", price: 60 },
-    //   { name: "Red Shells", price: 80 }, 
-    // ],
-    // count: [],
-    todos: [
-      { id: 1, name: 'shopping at 7', done: true },
-      { id: 2, name: 'learn vuex', done: true },
-      { id: 3, name: 'gaming', done: false },
+    topRated: [
+      { id: 1, name: "Banana Skin", price: 20, desc: "AAAA", rate: 4.1 },
+      { id: 2, name: "Shiny Star", price: 40, desc: "AAAA", rate: 5 },
+      { id: 3, name: "Green Shells", price: 60, desc: "AAAA", rate: 3.2 },
+      { id: 4, name: "Red Shells", price: 80, desc: "AAAA", rate: 4.5 },
     ],
-    count: 0
   },
   getters: {
-    doneTodos: state => {
-      return state.todos.filter(todo => todo.done)
-    }
+
   },
   mutations: {
-    increment(state,payload) {
-      state.count+=payload
-    }
+
   },
   actions: {
-    increment(context, payload) {
-      setTimeout(() => {
-        context.commit('increment',payload)
-      }, 1000)
-    }
+
   },
   modules: {
   }
