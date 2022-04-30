@@ -1,11 +1,19 @@
 <template>
   <div class="wrapper">
-    <Header />
     <div class="col" id="main">
       <div class="row row-cols-3 mt-5">
         <div v-for="items in topRated" :key="items.id" class="card col">
           <div class="card-body">
             <h5 class="card-title text-center">{{ items.name }}</h5>
+          </div>
+          <div class="text-center mb-3">
+            <button
+              @click="foodDetails(items)"
+              type="button"
+              class="btn btn-success"
+            >
+              Detials
+            </button>
           </div>
         </div>
       </div>
@@ -14,17 +22,20 @@
 </template>
 
 <script>
+import FoodDetailsVue from "../components/FoodDetails.vue";
 // @ is an alias to /src
-import Header from "../components/Header.vue";
 
 export default {
   name: "Home",
-  components: {
-    Header,
-  },
   computed: {
     topRated() {
       return this.$store.state.topRated;
+    },
+  },
+  methods: {
+    foodDetails(item) {
+      // this.$router.push({ name: food-details, params: item });
+      this.$router.push("/food-details");
     },
   },
 };

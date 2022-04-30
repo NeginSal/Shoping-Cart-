@@ -1,28 +1,32 @@
 <template>
   <div class="header">
     <div class="logo">
-      <h4 class="sweet">Shopping Cart</h4>
+      <h4 class="sweet" @click="goTo('home')" >Shopping Cart</h4>
     </div>
-    
-    <div class="d-flex cart">
-      <i class="fa fa-shopping-cart cart-icon"></i>
 
-      <span class="cart-count">{{count}}</span>
+    <div class="d-flex cart">
+      <i class="fa fa-shopping-cart cart-icon" @click="goTo('cart')"></i>
+
+      <span class="cart-count">{{ count }}</span>
 
       <h5 class="login">Login</h5>
       <h5 class="register">Sign Up</h5>
     </div>
-
   </div>
 </template>
 
 <script>
 export default {
-  computed:{
-    count(){
+  computed: {
+    count() {
       return this.$store.state.cartItemCount;
-    }
-  }
+    },
+  },
+  methods: {
+    goTo(page) {
+      page === "home" ? this.$router.push("/") : this.$router.push("/cart");
+    },
+  },
 };
 </script>
 
@@ -67,6 +71,6 @@ export default {
 }
 .login .register {
   font-weight: 600;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 </style>
