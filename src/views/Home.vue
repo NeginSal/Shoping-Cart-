@@ -33,9 +33,9 @@ export default {
     },
   },
   methods: {
-    foodDetails(item) {
-      // this.$router.push({ name: food-details, params: item });
-      this.$router.push("/food-details");
+    foodDetails(items) {
+      this.$router.push({ name: 'food-details', params: items });
+      // this.$router.push("/food-details");
     },
   },
 };
