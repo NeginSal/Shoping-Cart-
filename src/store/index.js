@@ -19,6 +19,22 @@ export default createStore({
 
   },
   mutations: {
+    addToCart(state,payload){
+      let item = payload;
+      item = {...item,quantity:1}
+      if(state.cartItems.length>0){
+        let bool =state.cartItems.some(i=>i.id===item.id)
+        if(bool){
+          let itemIndex = state.cartItems.findIndex(el=>el.id === item.id)
+          state.cartItems[itemIndex]["quantity"] +=1;
+        }else{
+          state.cartItems.push(item)
+        }
+      }else{
+        state.cartItems.push(item)
+      }
+      state.cartItemCount++
+    }
 
   },
   actions: {

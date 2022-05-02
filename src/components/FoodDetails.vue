@@ -34,6 +34,12 @@ export default {
     goToCart() {
       this.$router.push("/cart");
     },
+    addToCart(){
+      this.$store.dispatch('addToCart',this.details)
+
+    },removeIems(){
+
+    }
   },
   created() {
     if (this.$route.params.id !== undefined) {
