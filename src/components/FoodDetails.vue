@@ -14,8 +14,8 @@
             <button @click="goToCart" class="btn btn-primary mx-1">
               Go to Cart
             </button>
-            <button class="btn btn-success">Add Item</button>
-            <button class="btn btn-danger mx-1">Remove Item</button>
+            <button @click="addToCart" class="btn btn-success">Add Item</button>
+            <button @click="removeItem" class="btn btn-danger mx-1">Remove Item</button>
           </div>
         </div>
       </div>
@@ -37,8 +37,8 @@ export default {
     addToCart(){
       this.$store.dispatch('addToCart',this.details)
 
-    },removeIems(){
-
+    },removeItem(){
+      this.$store.dispatch('removeItem',this.details)
     }
   },
   created() {
