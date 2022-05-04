@@ -1,7 +1,14 @@
 <template>
   <div class="d-flex cart-outer-div">
     <div class="card-body">
-      <div class="container mb-5"></div>
+      <div class="container mb-5">
+        <h4 class="my-4 my-cart">My Cart</h4>
+        <div class="d-flex my-3" style="justify-content:space-between" >
+          <h4 class="fw-600">Summary</h4>
+          <h4 class="fw-600" style="margin-right:49%">Cart</h4>
+        </div>
+        <Summary v-bind:totalPrice="totalPrice"/>
+      </div>
       <EmptyCard />
     </div>
   </div>
@@ -9,10 +16,25 @@
 
 <script>
 import EmptyCart from "./EmptyCard.vue";
+import Summary from "./Summary.vue";
+
 export default {
   components: {
-    name: EmptyCart,
+    EmptyCart,
+    Summary
   },
+  computed:{
+    cartItems(){
+      return this.$store.state.cartItems;
+    },
+    totalPrice(){
+      let price =0;
+      this.$$store.state.cartItems.map(el=>{
+        price += el["quantity"]*el["price"]
+      })
+      return price;
+    }
+  }
 };
 </script>
 
